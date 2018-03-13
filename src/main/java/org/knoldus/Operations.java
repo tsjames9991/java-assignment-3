@@ -7,10 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
+/**
+ * Operations Class.
+ */
 public class Operations {
+    /**
+     * Total seconds in a day.
+     */
     private final int toSeconds = 24 * 60 * 60;
     /**
-     * ONE: private final ONE resembles unity.
+     * ONE: private final ONE.
      */
     private final int one = 1;
 
@@ -20,7 +26,7 @@ public class Operations {
      * @param birthday : user's birthday.
      * @return : List of week names.
      */
-    public List<String> getDayOfWeek(final LocalDate birthday) {
+    public final List<String> getDayOfWeek(final LocalDate birthday) {
         LocalDate today = LocalDate.now();
         List<String> result = new ArrayList<>();
         LocalDate givenBirthday = birthday;
@@ -37,7 +43,7 @@ public class Operations {
      * @param timeZone : user specific time zone.
      * @return : current time.
      */
-    public String getTimeFromTimeZone(final String timeZone) {
+    public final String getTimeFromTimeZone(final String timeZone) {
         TimeZone zone = TimeZone.getTimeZone(timeZone);
         return ZonedDateTime.now(zone.toZoneId()).toString();
     }
@@ -47,7 +53,7 @@ public class Operations {
      *
      * @return : returns seconds.
      */
-    public long mahtmaGandhiLived() {
+    public final long mahtmaGandhiLived() {
         LocalDate birth = LocalDate.parse("1869-10-02");
         LocalDate demise = LocalDate.parse("1948-01-30");
         return birth.until(demise, ChronoUnit.DAYS) * toSeconds;
@@ -58,7 +64,7 @@ public class Operations {
      *
      * @return : List of years.
      */
-    public List<Integer> listLeapYears() {
+    public final List<Integer> listLeapYears() {
         LocalDate firstLeap = LocalDate.parse("1990-01-01");
         LocalDate currentDate = LocalDate.now();
         List<Integer> years = new ArrayList<Integer>();
