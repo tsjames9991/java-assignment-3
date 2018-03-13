@@ -1,11 +1,13 @@
 package org.knoldus;
 
 import org.junit.Test;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -26,6 +28,34 @@ public class OperationsTest {
      * Total seconds Gandhi lived.
      */
     private static final long SECONDS = 2471731200L;
+    /**
+     * Leap years between 1990 to 2018.
+     */
+    private static final int ONE = 1992;
+    /**
+     * Leap years between 1990 to 2018.
+     */
+    private static final int TWO = 1996;
+    /**
+     * Leap years between 1990 to 2018.
+     */
+    private static final int THREE = 2000;
+    /**
+     * Leap years between 1990 to 2018.
+     */
+    private static final int FOUR = 2004;
+    /**
+     * Leap years between 1990 to 2018.
+     */
+    private static final int FIVE = 2008;
+    /**
+     * Leap years between 1990 to 2018.
+     */
+    private static final int SIX = 2012;
+    /**
+     * Leap years between 1990 to 2018.
+     */
+    private static final int SEVEN = 2016;
 
     /**
      * checks how many seconds Mahatma Gandhi lived.
@@ -63,13 +93,13 @@ public class OperationsTest {
         int[] actualResult = OPERATION.listLeapYears().stream()
                 .mapToInt(x -> x)
                 .toArray();
-        LEAPYEAR.add(1992);
-        LEAPYEAR.add(1996);
-        LEAPYEAR.add(2000);
-        LEAPYEAR.add(2004);
-        LEAPYEAR.add(2008);
-        LEAPYEAR.add(2012);
-        LEAPYEAR.add(2016);
+        LEAPYEAR.add(ONE);
+        LEAPYEAR.add(TWO);
+        LEAPYEAR.add(THREE);
+        LEAPYEAR.add(FOUR);
+        LEAPYEAR.add(FIVE);
+        LEAPYEAR.add(SIX);
+        LEAPYEAR.add(SEVEN);
         int[] expectedResult = LEAPYEAR.stream()
                 .mapToInt(x -> x)
                 .toArray();
@@ -83,9 +113,10 @@ public class OperationsTest {
     @Test
     public final void testGetTimeFromTimeZone() {
         LocalDateTime current = LocalDateTime.now();
-        String actualResult = OPERATION.getTimeFromTimeZone("UTC+12");
+        String actualResult = OPERATION.getTimeFromTimeZone("UTC+12", current);
         ZoneId zone = ZoneId.of("UTC+12");
         String expectedResult = current.atZone(zone).toString();
         assertEquals("UTC time should be equal", expectedResult, actualResult);
     }
+
 }

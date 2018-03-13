@@ -1,6 +1,7 @@
 package org.knoldus;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Application Class.
@@ -25,9 +26,11 @@ public final class Application {
         System.out.println("Get all the days of week from birthday to today");
         operations.getDayOfWeek(birthday).forEach(System.out::println);
 
-        System.out.println("Get current time according to the timezone");
-        System.out.println(operations.getTimeFromTimeZone("UTC+12"));
-        System.out.println(operations.getTimeFromTimeZone("UTC"));
+        System.out.println("Getting current time according to timezone");
+        System.out.println(operations.
+                getTimeFromTimeZone("UTC", LocalDateTime.now()));
+        System.out.println(operations.
+                getTimeFromTimeZone("UTC+12", LocalDateTime.now()));
 
         System.out.println("List all the leap years from 1990 - 2018");
         operations.listLeapYears()

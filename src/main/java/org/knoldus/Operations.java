@@ -1,11 +1,11 @@
 package org.knoldus;
 
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TimeZone;
 
 /**
  * Operations Class.
@@ -41,11 +41,13 @@ public class Operations {
      * gets current time from the given zone.
      *
      * @param timeZone : user specific time zone.
+     * @param time : current time.
      * @return : current time.
      */
-    public final String getTimeFromTimeZone(final String timeZone) {
-        TimeZone zone = TimeZone.getTimeZone(timeZone);
-        return ZonedDateTime.now(zone.toZoneId()).toString();
+    public final String getTimeFromTimeZone(final String timeZone,
+                                      final LocalDateTime time) {
+        ZoneId zone = ZoneId.of(timeZone);
+        return time.atZone(zone).toString();
     }
 
     /**
