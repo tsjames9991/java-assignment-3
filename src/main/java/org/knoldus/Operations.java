@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 public class Operations {
-    private final int toSeconds = 60 * 60 * 60;
+    private final int toSeconds = 24 * 60 * 60;
     /**
      * ONE: private final ONE resembles unity.
      */
